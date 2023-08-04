@@ -7,4 +7,4 @@ APP="$1";
 
 HOOKS_DIR=${HOOKS_DIR:-hooks}
 
-node scripts/drop-db.mjs
+export TEST_DB=$(dokku config:get codeforafrica TEST_DB) && dokku run $APP node scripts/drop-db.mjs dokku config:get codeforafrica "$TEST_DB"
