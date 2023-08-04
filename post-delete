@@ -7,9 +7,4 @@ APP="$1";
 
 HOOKS_DIR=${HOOKS_DIR:-hooks}
 
-if [ -f "$HOOKS_DIR/post-delete" ]; then
-    if [ ! -x "$HOOKS_DIR/post-delete" ]; then
-        chmod +x $HOOKS_DIR/post-delete
-    fi
-     $HOOKS_DIR/post-delete
-fi
+node scripts/drop-db.mjs
