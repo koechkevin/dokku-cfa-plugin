@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
-set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
-source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
-source "$PLUGIN_CORE_AVAILABLE_PATH/config/functions"
 
-APP="$1";
+source common
 
-HOOKS_DIR=${HOOKS_DIR:-./hooks}
-
-if [ -f "$HOOKS_DIR/post-deploy" ]; then
-    if [ ! -x "$HOOKS_DIR/post-deploy" ]; then
-        chmod u+x $HOOKS_DIR/post-deploy
-    fi
-     $HOOKS_DIR/post-deploy
-fi
+run_hook "post-deploy"

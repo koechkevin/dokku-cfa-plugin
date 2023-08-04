@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
-set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
-source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
-source "$PLUGIN_CORE_AVAILABLE_PATH/config/functions"
 
-APP="$1";
+# Source common-hooks.sh
+source common
 
-HOOKS_DIR=${HOOKS_DIR:-hooks}
-
-if [ -f "$HOOKS_DIR/post-delete" ]; then
-    if [ ! -x "$HOOKS_DIR/post-delete" ]; then
-        chmod +x $HOOKS_DIR/post-delete
-    fi
-     $HOOKS_DIR/post-delete
-fi
+run_hook "post-delete"
