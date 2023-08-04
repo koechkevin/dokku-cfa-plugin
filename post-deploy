@@ -7,4 +7,4 @@ APP="$1";
 
 HOOKS_DIR=${HOOKS_DIR:-./hooks}
 
-dokku run $APP -rm node dist/server.js
+dokku run $APP node dist/server.js
