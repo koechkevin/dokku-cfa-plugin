@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from utils import pip_install
 
 def drop_mongodb_database(url):
