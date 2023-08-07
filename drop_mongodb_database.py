@@ -1,4 +1,8 @@
+from utils import pip_install
+
 def drop_mongodb_database(url):
+    pip_install("pymongo")
+    import pymongo
     try:
         # Parse the MongoDB URL
         parsed_url = urlparse(url)
