@@ -11,7 +11,7 @@ def pip_install(dependancy):
 
 def execute_bash(command):
     try:
-        return subprocess.check_output(command, shell=True, stdout=subprocess.PIPE, text=True)
+        return subprocess.check_output(command, shell=True, text=True)
     except Exception as e:
         print("Failed to execute '{command}'", e)
         return None
