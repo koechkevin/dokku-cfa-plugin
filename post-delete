@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import sys
-from urllib.parse import urlparse
 import os
 from drop_mongodb_database import drop_mongodb_database
 from utils import pip_install
