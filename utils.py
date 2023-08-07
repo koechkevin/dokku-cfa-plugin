@@ -1,3 +1,5 @@
+import subprocess
+
 def pip_install(dependancy):
     try:
         subprocess.check_call(["pip", "install", dependancy])
