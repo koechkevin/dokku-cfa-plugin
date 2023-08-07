@@ -10,6 +10,7 @@ APP= sys.argv[1] if len(sys.argv) >1 else None
 if __name__ == "__main__":
     mongodb_url = os.environ.get("HOOK_MONGODB_URL")  # Read MongoDB URL from environment variable
     destroy_db = os.environ.get("HOOK_DESTROY_DB") or "0"
+    print(destroy_db, mongodb_url)
     if int(destroy_db):
         if not mongodb_url:
             print("HOOK_MONGODB_URL environment variable not set.")

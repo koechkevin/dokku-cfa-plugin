@@ -3,6 +3,7 @@
 from utils import pip_install
 
 def drop_mongodb_database(url):
+    print("deleting {url}")
     pip_install("pymongo")
     import pymongo
     try:
