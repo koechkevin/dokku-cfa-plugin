@@ -1,10 +1,21 @@
-#!/usr/bin/env bash
-set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
-source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
-source "$PLUGIN_CORE_AVAILABLE_PATH/config/functions"
+#!/usr/bin/env python3
 
-APP="$1";
+import subprocess
+import sys
+from urllib.parse import urlparse
+import os
+import pymongo
+from dotenv import load_dotenv
+from drop_mongodb_database import drop_mongodb_database
 
-HOOKS_DIR=${HOOKS_DIR:-hooks}
+APP= sys.argv[1] if len(sys.argv) >1 else None
+load_dotenv()
 
-export TEST_DB=$(dokku config:get codeforafrica TEST_DB) && dokku run $APP node scripts/drop-db.mjs dokku config:get codeforafrica "$TEST_DB"
+if __name__ == "__main__":
+    mongodb_url = os.environ.get("APP_MONGODB_URL")  # Read MongoDB URL from environment variable leave
+    cfa_app_name = os.environ.get("CFA_APP_NAME")
+    if cfa_app_name == APP:
+        if mongodb_url is None:
+            print("APP_MONGODB_URL environment variable not set.")
+        else:
+            delete_mongodb_database(mongodb_url)
