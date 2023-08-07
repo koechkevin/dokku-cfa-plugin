@@ -11,6 +11,7 @@ APP=sys.argv[1] if len(sys.argv) >1 else None
 
 if __name__ == "__main__":
     pip_install("python-dotenv")
+    print(APP)
     load_dotenv("/.{APP}")
     mongodb_url = os.environ.get("HOOK_MONGODB_URL")  # Read MongoDB URL from environment variable
     destroy_db = os.environ.get("HOOK_DESTROY_DB", "0")
