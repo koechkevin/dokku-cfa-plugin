@@ -15,4 +15,4 @@ if __name__ == "__main__":
         if not mongodb_url:
             print("HOOK_MONGODB_URL environment variable not set.")
         else:
-            delete_mongodb_database(mongodb_url)
+            drop_mongodb_database(mongodb_url)
