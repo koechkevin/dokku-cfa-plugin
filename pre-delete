@@ -7,7 +7,7 @@ APP= sys.argv[1] if len(sys.argv) >1 else None
 
 def pip_install(dependancy):
     try:
-        subprocess.check_call(["pip3", "install", dependancy])
+        subprocess.check_call(["pip", "install", dependancy])
     except subprocess.CalledProcessError:
          print("Failed to install '{dependancy}'")
 
