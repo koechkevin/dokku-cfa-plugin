@@ -3,5 +3,5 @@
 APP=$1
 
 eval $(dokku config:export $APP)
-dokku config:export $APP > ~.$APP
+dokku config:export $APP > /.$APP
 echo $(dokku config:export $APP)
