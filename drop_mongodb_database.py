@@ -3,7 +3,7 @@
 from utils import pip_install
 from urllib.parse import urlparse
 
-def drop_mongodb_database(url):
+def drop_mongodb_database(url, db_name):
     print("deleting {url}")
     pip_install("pymongo")
     import pymongo
@@ -14,7 +14,6 @@ def drop_mongodb_database(url):
         password = parsed_url.password
         hostname = parsed_url.hostname
         port = parsed_url.port
-        db_name = parsed_url.path.replace("/", "")
         client = pymongo.MongoClient(host=hostname, port=port,
                                      username=username, password=password)
         

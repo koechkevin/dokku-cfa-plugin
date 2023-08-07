@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-APP=$1
-
-echo HOOK_MONGODB_URL=$(dokku config:get $APP HOOK_MONGODB_URL) > "/.$APP"
-echo HOOK_DESTROY_DB=$(dokku config:get $APP HOOK_DESTROY_DB) >> "/.$APP"
-
-echo $pwd
