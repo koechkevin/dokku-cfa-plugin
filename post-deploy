@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python
 
-APP="$1";
-echo $APP
-echo "+++++++++++++++++++++++++++++++++++>"
+print("------------------POST DEPLOY--------------->")
